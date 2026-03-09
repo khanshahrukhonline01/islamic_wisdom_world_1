@@ -117,4 +117,57 @@
     overflow-x: auto;
     white-space: pre;
   }
+
+  /* RTL Support */
+  html[dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+  }
+
+  html[dir="ltr"] {
+    direction: ltr;
+    text-align: left;
+  }
+
+  /* RTL-aware spacing and layout utilities */
+  html[dir="rtl"] {
+    --tw-translate-x-direction: -1;
+  }
+
+  html[dir="ltr"] {
+    --tw-translate-x-direction: 1;
+  }
+
+  /* Font support for various scripts */
+  @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700;800&family=Noto+Sans+Bengali:wght@400;600;700;800&family=Noto+Sans+Tamil:wght@400;600;700&display=swap");
+
+  html[lang="ar"],
+  html[lang^="ar-"] {
+    font-family: "Noto Sans Arabic", "Inter", sans-serif;
+  }
+
+  html[lang="hi"],
+  html[lang^="hi-"] {
+    font-family: "Noto Sans Devanagari", "Inter", sans-serif;
+  }
+
+  html[lang="bn"],
+  html[lang^="bn-"] {
+    font-family: "Noto Sans Bengali", "Inter", sans-serif;
+  }
+
+  html[lang="ta"],
+  html[lang^="ta-"] {
+    font-family: "Noto Sans Tamil", "Inter", sans-serif;
+  }
+
+  html[lang="ur"],
+  html[lang^="ur-"] {
+    font-family: "Noto Sans Arabic", "Inter", sans-serif;
+  }
+
+  /* Ensure consistent line height for all languages */
+  html {
+    line-height: 1.5;
+  }
 }

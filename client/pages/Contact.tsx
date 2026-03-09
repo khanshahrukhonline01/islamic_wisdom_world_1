@@ -1,17 +1,20 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
 export default function Contact() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   const navigationLinks = [
-    { label: "Home", href: "/" },
-    { label: "Sermons", href: "/sermons" },
-    { label: "Learn", href: "/learn" },
-    { label: "Community", href: "/community" },
-    { label: "Contact", href: "/contact" },
+    { labelKey: "nav.home", href: "/" },
+    { labelKey: "nav.sermons", href: "/sermons" },
+    { labelKey: "nav.learn", href: "/learn" },
+    { labelKey: "nav.community", href: "/community" },
+    { labelKey: "nav.contact", href: "/contact" },
   ];
 
   return (
@@ -36,14 +39,16 @@ export default function Contact() {
                   to={link.href}
                   className="text-foreground hover:text-primary transition-colors text-sm font-medium"
                 >
-                  {link.label}
+                  {t(link.labelKey)}
                 </Link>
               ))}
             </nav>
 
             <div className="flex items-center gap-4">
+              <LanguageSwitcher />
+
               <Button className="hidden sm:inline-flex bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-white rounded-full px-6">
-                Get Started
+                {t("nav.getStarted")}
               </Button>
 
               <button
@@ -68,11 +73,11 @@ export default function Contact() {
                   className="block text-foreground hover:text-primary transition-colors py-2 text-sm font-medium"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  {link.label}
+                  {t(link.labelKey)}
                 </Link>
               ))}
               <Button className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-white rounded-full mt-2">
-                Get Started
+                {t("nav.getStarted")}
               </Button>
             </nav>
           )}
@@ -83,21 +88,19 @@ export default function Contact() {
       <section className="py-20 sm:py-32">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
           <h1 className="text-4xl sm:text-5xl font-bold text-foreground">
-            Get in Touch
+            {t("nav.contact")}
           </h1>
           <p className="text-xl text-foreground/70">
-            This page is coming soon! Continue prompting to build out the contact
-            section with contact forms, contact information, and support options.
+            {t("placeholder.message")}
           </p>
           <div className="bg-primary/10 border border-primary/20 rounded-2xl p-8 max-w-2xl mx-auto">
             <div className="text-6xl mb-4">✉️</div>
             <p className="text-foreground/70 mb-6">
-              Help us build the contact section by describing how users can reach
-              out, support options, and contact information you'd like to include.
+              {t("placeholder.message")}
             </p>
             <Link to="/">
               <Button className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-white rounded-full px-8 py-6">
-                Back to Home
+                {t("placeholder.backHome")}
               </Button>
             </Link>
           </div>
@@ -116,51 +119,51 @@ export default function Contact() {
                 <span className="font-bold">Islamic Preach</span>
               </div>
               <p className="text-white/70 text-sm">
-                Bringing Islamic wisdom to the modern world
+                {t("footer.aboutUs")}
               </p>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Quick Links</h4>
+              <h4 className="font-semibold mb-4">{t("footer.quickLinks")}</h4>
               <ul className="space-y-2 text-sm text-white/70">
                 <li>
                   <Link to="/sermons" className="hover:text-white transition-colors">
-                    Sermons
+                    {t("nav.sermons")}
                   </Link>
                 </li>
                 <li>
                   <Link to="/learn" className="hover:text-white transition-colors">
-                    Learn
+                    {t("nav.learn")}
                   </Link>
                 </li>
                 <li>
                   <Link to="/community" className="hover:text-white transition-colors">
-                    Community
+                    {t("nav.community")}
                   </Link>
                 </li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Support</h4>
+              <h4 className="font-semibold mb-4">{t("footer.support")}</h4>
               <ul className="space-y-2 text-sm text-white/70">
                 <li>
                   <Link to="/contact" className="hover:text-white transition-colors">
-                    Contact
+                    {t("nav.contact")}
                   </Link>
                 </li>
                 <li>
                   <a href="#" className="hover:text-white transition-colors">
-                    Privacy Policy
+                    {t("footer.privacy")}
                   </a>
                 </li>
                 <li>
                   <a href="#" className="hover:text-white transition-colors">
-                    Terms & Conditions
+                    {t("footer.terms")}
                   </a>
                 </li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Follow Us</h4>
+              <h4 className="font-semibold mb-4">{t("footer.followUs")}</h4>
               <div className="flex gap-4 text-sm text-white/70">
                 <a href="#" className="hover:text-white transition-colors">
                   Facebook
@@ -176,7 +179,7 @@ export default function Contact() {
           </div>
           <div className="border-t border-white/10 pt-8">
             <p className="text-center text-sm text-white/60">
-              © 2024 Islamic Preach. All rights reserved.
+              {t("footer.copyright")}
             </p>
           </div>
         </div>

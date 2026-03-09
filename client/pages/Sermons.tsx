@@ -1,17 +1,20 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
 export default function Sermons() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   const navigationLinks = [
-    { label: "Home", href: "/" },
-    { label: "Sermons", href: "/sermons" },
-    { label: "Learn", href: "/learn" },
-    { label: "Community", href: "/community" },
-    { label: "Contact", href: "/contact" },
+    { labelKey: "nav.home", href: "/" },
+    { labelKey: "nav.sermons", href: "/sermons" },
+    { labelKey: "nav.learn", href: "/learn" },
+    { labelKey: "nav.community", href: "/community" },
+    { labelKey: "nav.contact", href: "/contact" },
   ];
 
   return (
@@ -36,14 +39,16 @@ export default function Sermons() {
                   to={link.href}
                   className="text-foreground hover:text-primary transition-colors text-sm font-medium"
                 >
-                  {link.label}
+                  {t(link.labelKey)}
                 </Link>
               ))}
             </nav>
 
             <div className="flex items-center gap-4">
+              <LanguageSwitcher />
+
               <Button className="hidden sm:inline-flex bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-white rounded-full px-6">
-                Get Started
+                {t("nav.getStarted")}
               </Button>
 
               <button
@@ -68,11 +73,11 @@ export default function Sermons() {
                   className="block text-foreground hover:text-primary transition-colors py-2 text-sm font-medium"
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  {link.label}
+                  {t(link.labelKey)}
                 </Link>
               ))}
               <Button className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-white rounded-full mt-2">
-                Get Started
+                {t("nav.getStarted")}
               </Button>
             </nav>
           )}
@@ -83,21 +88,19 @@ export default function Sermons() {
       <section className="py-20 sm:py-32">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
           <h1 className="text-4xl sm:text-5xl font-bold text-foreground">
-            Sermons
+            {t("nav.sermons")}
           </h1>
           <p className="text-xl text-foreground/70">
-            This page is coming soon! Continue prompting to build out the sermons
-            section with video lectures, audio recordings, and more.
+            {t("placeholder.message")}
           </p>
           <div className="bg-primary/10 border border-primary/20 rounded-2xl p-8 max-w-2xl mx-auto">
             <div className="text-6xl mb-4">🎤</div>
             <p className="text-foreground/70 mb-6">
-              Help us build the sermons section by providing more details about
-              what content you'd like to include.
+              {t("placeholder.message")}
             </p>
             <Link to="/">
               <Button className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-white rounded-full px-8 py-6">
-                Back to Home
+                {t("placeholder.backHome")}
               </Button>
             </Link>
           </div>
