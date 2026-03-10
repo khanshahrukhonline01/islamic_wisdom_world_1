@@ -107,14 +107,16 @@ export default function Learn() {
               </Link>
             </div>
             <div className="bg-secondary/10 border border-secondary/20 rounded-2xl p-8">
-              <div className="text-6xl mb-4">🎓</div>
-              <h3 className="text-xl font-bold text-foreground mb-2">More Coming Soon</h3>
+              <div className="text-6xl mb-4">🤖</div>
+              <h3 className="text-xl font-bold text-foreground mb-2">AI-Powered Tools</h3>
               <p className="text-foreground/70 mb-6">
-                {t("placeholder.message")}
+                Use advanced AI for translation, voice recognition, and text-to-speech
               </p>
-              <Button disabled className="w-full rounded-full px-8 py-4 bg-foreground/20 text-foreground">
-                Coming Soon
-              </Button>
+              <Link to="/ai-tools">
+                <Button className="w-full bg-gradient-to-r from-secondary to-secondary/80 hover:from-secondary/90 hover:to-secondary/70 text-white rounded-full px-8 py-4">
+                  Explore AI Tools
+                </Button>
+              </Link>
             </div>
           </div>
           <Link to="/">
