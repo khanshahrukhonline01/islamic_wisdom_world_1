@@ -23,15 +23,14 @@ export function LanguageProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const [currentLanguage, setCurrentLanguageState] = useState<string>("");
-  const [mounted, setMounted] = useState(false);
+  // Use "en" as default to ensure context is always available
+  const [currentLanguage, setCurrentLanguageState] = useState<string>("en");
 
   // Initialize language on mount
   useEffect(() => {
     const savedLanguage = localStorage.getItem("preferred-language");
     const language = savedLanguage || getDetectedLanguage();
     setCurrentLanguageState(language);
-    setMounted(true);
 
     // Update document direction and lang attribute
     const htmlElement = document.documentElement;
@@ -55,11 +54,6 @@ export function LanguageProvider({
       })
     );
   };
-
-  // Prevent rendering until mounted to avoid hydration mismatch
-  if (!mounted) {
-    return <>{children}</>;
-  }
 
   return (
     <LanguageContext.Provider
