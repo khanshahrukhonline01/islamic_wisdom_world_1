@@ -1,4 +1,5 @@
-import { Link, useState } from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { TranslationChatbot } from "@/components/TranslationChatbot";
@@ -111,10 +112,10 @@ export default function AITools() {
       <section className="py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Tab Navigation */}
-          <div className="flex flex-col sm:flex-row gap-3 mb-8 border-b border-primary/10 pb-6">
+          <div className="flex flex-col sm:flex-row gap-3 mb-8 border-b border-primary/10 pb-6 overflow-x-auto">
             <button
               onClick={() => setActiveTab("chatbot")}
-              className={`px-6 py-3 rounded-lg font-medium text-sm transition-all ${
+              className={`px-6 py-3 rounded-lg font-medium text-sm transition-all whitespace-nowrap ${
                 activeTab === "chatbot"
                   ? "bg-primary text-white"
                   : "bg-primary/5 text-foreground hover:bg-primary/10"
@@ -124,7 +125,7 @@ export default function AITools() {
             </button>
             <button
               onClick={() => setActiveTab("voice")}
-              className={`px-6 py-3 rounded-lg font-medium text-sm transition-all ${
+              className={`px-6 py-3 rounded-lg font-medium text-sm transition-all whitespace-nowrap ${
                 activeTab === "voice"
                   ? "bg-primary text-white"
                   : "bg-primary/5 text-foreground hover:bg-primary/10"
@@ -134,7 +135,7 @@ export default function AITools() {
             </button>
             <button
               onClick={() => setActiveTab("tts")}
-              className={`px-6 py-3 rounded-lg font-medium text-sm transition-all ${
+              className={`px-6 py-3 rounded-lg font-medium text-sm transition-all whitespace-nowrap ${
                 activeTab === "tts"
                   ? "bg-primary text-white"
                   : "bg-primary/5 text-foreground hover:bg-primary/10"
@@ -142,6 +143,12 @@ export default function AITools() {
             >
               🔊 Text to Speech
             </button>
+            <Link
+              to="/tools/subtitles"
+              className="px-6 py-3 rounded-lg font-medium text-sm transition-all whitespace-nowrap bg-secondary/10 text-foreground hover:bg-secondary/20"
+            >
+              📹 Subtitles
+            </Link>
           </div>
 
           {/* Tab Content */}
@@ -323,6 +330,17 @@ export default function AITools() {
                 perfect for learning while on the go.
               </p>
             </div>
+
+            <div className="bg-white p-6 rounded-lg border border-primary/10">
+              <div className="text-4xl mb-4">📹</div>
+              <h3 className="text-xl font-bold text-foreground mb-3">
+                Generate Video Subtitles
+              </h3>
+              <p className="text-foreground/70 text-sm">
+                Automatically generate and translate subtitles for your Islamic videos and
+                lectures to reach more people.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -334,10 +352,15 @@ export default function AITools() {
             Explore More Features
           </h2>
           <p className="text-lg text-foreground/70">
-            These AI tools are just the beginning. More advanced features coming soon,
-            including language learning modules, subtitle generation, and more.
+            From chatbots and voice recognition to text-to-speech and subtitle generation,
+            our AI tools help make Islamic content accessible to everyone.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/tools/subtitles">
+              <Button className="bg-gradient-to-r from-secondary to-secondary/80 hover:from-secondary/90 hover:to-secondary/70 text-white rounded-full px-8 py-6 text-base font-semibold">
+                Try Subtitle Generator
+              </Button>
+            </Link>
             <Link to="/learn/content">
               <Button className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-white rounded-full px-8 py-6 text-base font-semibold">
                 Explore Content Library

@@ -13,6 +13,7 @@ import Sermons from "./pages/Sermons";
 import Learn from "./pages/Learn";
 import LearnContent from "./pages/LearnContent";
 import AITools from "./pages/AITools";
+import SubtitleTool from "./pages/SubtitleTool";
 import Community from "./pages/Community";
 import Contact from "./pages/Contact";
 
@@ -31,6 +32,7 @@ const App = () => (
           <Route path="/learn" element={<Learn />} />
           <Route path="/learn/content" element={<LearnContent />} />
           <Route path="/ai-tools" element={<AITools />} />
+          <Route path="/tools/subtitles" element={<SubtitleTool />} />
           <Route path="/community" element={<Community />} />
           <Route path="/contact" element={<Contact />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
