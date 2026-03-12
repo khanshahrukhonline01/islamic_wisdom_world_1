@@ -12,6 +12,7 @@ import NotFound from "./pages/NotFound";
 import Sermons from "./pages/Sermons";
 import Learn from "./pages/Learn";
 import LearnContent from "./pages/LearnContent";
+import LearningModules from "./pages/LearningModules";
 import AITools from "./pages/AITools";
 import SubtitleTool from "./pages/SubtitleTool";
 import Community from "./pages/Community";
@@ -31,6 +32,7 @@ const App = () => (
           <Route path="/sermons" element={<Sermons />} />
           <Route path="/learn" element={<Learn />} />
           <Route path="/learn/content" element={<LearnContent />} />
+          <Route path="/learn/modules" element={<LearningModules />} />
           <Route path="/ai-tools" element={<AITools />} />
           <Route path="/tools/subtitles" element={<SubtitleTool />} />
           <Route path="/community" element={<Community />} />

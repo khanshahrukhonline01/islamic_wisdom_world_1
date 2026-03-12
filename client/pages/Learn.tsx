@@ -93,7 +93,7 @@ export default function Learn() {
           <p className="text-xl text-foreground/70">
             Explore Islamic knowledge with multilingual support
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="bg-primary/10 border border-primary/20 rounded-2xl p-8">
               <div className="text-6xl mb-4">📖</div>
               <h3 className="text-xl font-bold text-foreground mb-2">Localized Content</h3>
@@ -115,6 +115,18 @@ export default function Learn() {
               <Link to="/ai-tools">
                 <Button className="w-full bg-gradient-to-r from-secondary to-secondary/80 hover:from-secondary/90 hover:to-secondary/70 text-white rounded-full px-8 py-4">
                   Explore AI Tools
+                </Button>
+              </Link>
+            </div>
+            <div className="bg-primary/10 border border-primary/20 rounded-2xl p-8">
+              <div className="text-6xl mb-4">🎮</div>
+              <h3 className="text-xl font-bold text-foreground mb-2">Gamified Learning</h3>
+              <p className="text-foreground/70 mb-6">
+                Master Islamic knowledge through interactive lessons, quizzes, and badges
+              </p>
+              <Link to="/learn/modules">
+                <Button className="w-full bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-white rounded-full px-8 py-4">
+                  Start Learning
                 </Button>
               </Link>
             </div>
