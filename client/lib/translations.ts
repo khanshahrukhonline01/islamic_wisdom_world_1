@@ -65,11 +65,23 @@ export const translations: Record<string, Record<string, string>> = {
     "footer.copyright": "© 2024 Islamic Preach. All rights reserved.",
     "footer.privacy": "Privacy Policy",
     "footer.terms": "Terms & Conditions",
+    "footer.about": "About Us",
+    "footer.disclaimer": "Disclaimer",
 
     "placeholder.comingSoon": "Coming Soon",
     "placeholder.message":
       "This page is coming soon! Continue prompting to build out this section with more content.",
     "placeholder.backHome": "Back to Home",
+
+    // Legal Pages
+    "legal.privacy": "Privacy Policy",
+    "legal.terms": "Terms & Conditions",
+    "legal.about": "About Us",
+    "legal.disclaimer": "Disclaimer",
+    "legal.lastUpdated": "Last Updated",
+    "legal.introduction": "Introduction",
+    "legal.privacyIntro": "We respect your privacy and are committed to protecting your personal data. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.",
+    "legal.termsIntro": "Welcome to Islamic Preach. These Terms and Conditions govern your use of our platform and all content, features, and services offered.",
   },
 
   // Arabic

@@ -405,6 +405,31 @@ export default function Index() {
               </ul>
             </div>
             <div>
+              <h4 className="font-semibold mb-4">Legal</h4>
+              <ul className="space-y-2 text-sm text-white/70">
+                <li>
+                  <Link to="/privacy" className="hover:text-white transition-colors">
+                    {t("footer.privacy")}
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/terms" className="hover:text-white transition-colors">
+                    {t("footer.terms")}
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/disclaimer" className="hover:text-white transition-colors">
+                    Disclaimer
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/about" className="hover:text-white transition-colors">
+                    About Us
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
               <h4 className="font-semibold mb-4">{t("footer.support")}</h4>
               <ul className="space-y-2 text-sm text-white/70">
                 <li>
@@ -413,13 +438,8 @@ export default function Index() {
                   </Link>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    {t("footer.privacy")}
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-white transition-colors">
-                    {t("footer.terms")}
+                  <a href="mailto:support@islamicpreach.com" className="hover:text-white transition-colors">
+                    Email Support
                   </a>
                 </li>
               </ul>
