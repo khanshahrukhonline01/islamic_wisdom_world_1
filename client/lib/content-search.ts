@@ -1,7 +1,8 @@
 // Content search and filtering service
 // Provides full-text search, filtering, and discovery features
 
-import { CONTENT_ITEMS, type LocalizedContent } from "./content";
+import { CONTENT_ITEMS } from "./content";
+import type { LocalizedContent, ContentTranslation } from "./content";
 
 export interface SearchFilters {
   contentType?: "quran" | "hadith" | "lecture";

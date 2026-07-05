@@ -266,3 +266,10 @@ export function getFeaturedContent(language: string): LocalizedContent[] {
     lectureContent[0], // Islam and Science
   ];
 }
+
+// Export all content items for search functionality
+export const CONTENT_ITEMS: LocalizedContent[] = [
+  ...quranContent,
+  ...hadithContent,
+  ...lectureContent,
+];

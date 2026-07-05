@@ -18,7 +18,19 @@ import {
 export default function Dashboard() {
   const { t } = useLanguage();
   const [profile, setProfile] = useState<UserProfile | null>(null);
-  const [stats, setStats] = useState(UserProgressService.getUserStats(profile || { totalPoints: 0, currentLevel: 1, completedLessons: [], completedQuizzes: [], bookmarkedContent: [], recentlyViewed: [], streakDays: 0, lastStreakDate: new Date().toISOString().split("T")[0], createdAt: Date.now(), lastActiveAt: Date.now(), userId: "" }));
+  const [stats, setStats] = useState(UserProgressService.getUserStats({
+    totalPoints: 0,
+    currentLevel: 1,
+    completedLessons: [],
+    completedQuizzes: [],
+    bookmarkedContent: [],
+    recentlyViewed: [],
+    streakDays: 0,
+    lastStreakDate: new Date().toISOString().split("T")[0],
+    createdAt: Date.now(),
+    lastActiveAt: Date.now(),
+    userId: ""
+  }));
 
   useEffect(() => {
     const userProfile = UserProgressService.getOrCreateProfile();
