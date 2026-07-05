@@ -21,6 +21,8 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsConditions from "./pages/TermsConditions";
 import Disclaimer from "./pages/Disclaimer";
 import About from "./pages/About";
+import Dashboard from "./pages/Dashboard";
+import ContentDiscovery from "./pages/ContentDiscovery";
 
 const queryClient = new QueryClient();
 
@@ -45,6 +47,8 @@ const App = () => (
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsConditions />} />
           <Route path="/disclaimer" element={<Disclaimer />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/search" element={<ContentDiscovery />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
