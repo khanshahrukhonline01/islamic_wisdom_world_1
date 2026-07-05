@@ -3,12 +3,36 @@ command = "npm run build:client"
 functions = "netlify/functions"
 publish = "dist/spa"
 
+[context.production.environment]
+NODE_ENV = "production"
 
-[functions]
-external_node_modules = ["express"]
-node_bundler = "esbuild"
+[context.deploy-preview.environment]
+NODE_ENV = "development"
+
+# SPA Routing - send all requests to index.html for client-side routing
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
+
+# API routes (if needed in future)
 [[redirects]]
 force = true
 from = "/api/*"
 status = 200
 to = "/.netlify/functions/api/:splat"
+
+[functions]
+external_node_modules = ["express"]
+node_bundler = "esbuild"
+
+# Cache configuration
+[[headers]]
+for = "/index.html"
+[headers.values]
+Cache-Control = "public, max-age=3600, must-revalidate"
+
+[[headers]]
+for = "/assets/*"
+[headers.values]
+Cache-Control = "public, max-age=31536000, immutable"

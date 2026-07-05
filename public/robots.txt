@@ -1,14 +1,23 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /.git/
+
+Sitemap: https://yourdomain.com/sitemap.xml
+
+# Google
 User-agent: Googlebot
 Allow: /
 
+# Bing
 User-agent: Bingbot
 Allow: /
 
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
+# Rules for other bots
 User-agent: *
-Allow: /
+Crawl-delay: 1
+Request-rate: 1/10s
+
+# Specific disallows
+Disallow: /temp/
+Disallow: /cache/

@@ -15,6 +15,26 @@ export default defineConfig(({ mode }) => ({
   },
   build: {
     outDir: "dist/spa",
+    // Optimize bundle size
+    minify: "terser",
+    terserOptions: {
+      compress: {
+        drop_console: true,
+      },
+    },
+    // Chunk splitting
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ["react", "react-dom", "react-router-dom"],
+          ui: ["@radix-ui/react-dialog", "@radix-ui/react-select", "@radix-ui/react-tabs"],
+        },
+      },
+    },
+    // Report compressed file size
+    reportCompressedSize: true,
+    // Chunk size warnings
+    chunkSizeWarningLimit: 1000,
   },
   plugins: [react(), expressPlugin()],
   resolve: {
